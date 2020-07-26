@@ -1,3 +1,4 @@
+#A simple if-else statement that takes users input.
 temperature = int(input("What is the temperature outside? "))
 
 if temperature > 80:

@@ -1,7 +1,7 @@
-#What is the score?
+#takes user input.
 score = int(input("What is your test score? "))
 
-#Determine the grade.
+#Determine the grade, using if/elif statements.
 if score >= 90:
     print("Your grade is an A.")
 elif score >= 80:
@@ -12,3 +12,6 @@ elif score >= 60:
     print("Your grade is D.")
 else:
     print("Your grade is an F.")
+
+
+#add here nested if else statement.
