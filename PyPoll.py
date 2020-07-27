@@ -12,6 +12,9 @@ file_to_save = os.path.join("Analysis", "election_analysis.txt") #-- THIS LINE -
 #Assign a variable to load a file from a path.
 file_to_load = os.path.join("Resources","election_results.csv") # a way when we do not know the path
 
+#Add the total vote counter = Initialize a total vote counter.
+total_votes = 0
+
 #Open the election results and read the file. Using open() function
 #open(file_to_save, "w") # THIS LINE -- see function "w" = write to a file.
 #election_data = open(file_to_load, 'r') #--THIS LINE-- is another way to open/read the file. "With" method below is another way. 
@@ -24,13 +27,19 @@ with open(file_to_load) as election_data:
     #Read the file object with the reader function.
     file_reader = csv.reader(election_data)
 
-    #Print each row in the CSV file.
-    #for row in file_reader:
-    #    print(row)
-
-    #Print the header row.
+    #Read the header row.
     headers = next(file_reader)
-    print(headers)
+    #Print the header row.
+    #print(headers)
+
+    #Print each row in the CSV file.
+    for row in file_reader:
+        #print(row) -we don't need to print it.
+        #Increment the total_votes by 1 (add the total vote count).
+        total_votes += 1
+    
+#Print the total votes (pay attention to indentation.)
+print(total_votes)
 
 #Using the with statement open the file as a text file.
 #with open(file_to_save, "w") as txt_file: #REMEMBER - with statement requires indentation!
