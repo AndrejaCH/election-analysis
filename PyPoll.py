@@ -80,92 +80,98 @@ with open(file_to_save, "w") as txt_file:
         f"Total Votes: {total_votes:,}\n"
         f"-------------------------\n")
     print(election_results, end="")
+    
     #Save the final vote count to the text file.
     txt_file.write(election_results)
 
 
-#use for loop to iterate through the candidate_option = [] list, to get the candidate name.
-#Iterate through the candidate list/dictionary? CREATE A MAIN FOR LOOP TO LOOP THROUGH, EVERYTHING ELSE IS DEPENDENT ON THIS
-#SEE THE PRINT MESSAGE - this how you iterating through print message!! 
-for candidate_name in candidate_votes:
-    #print(candidate_name)
-                
-    #use the for loop variable to retrieve the votes of the candidate from the candidate_votes ={} dictionary.
-    #retrieve vote count of a candidate.
-    votes = candidate_votes[candidate_name]
-    #print(votes)
+    #use for loop to iterate through the candidate_option = [] list, to get the candidate name.
+    #Iterate through the candidate list/dictionary? CREATE A MAIN FOR LOOP TO LOOP THROUGH, EVERYTHING ELSE IS DEPENDENT ON THIS
+    #SEE THE PRINT MESSAGE - this how you iterating through print message!! 
+    for candidate_name in candidate_votes:
+        #print(candidate_name)
+                    
+        #use the for loop variable to retrieve the votes of the candidate from the candidate_votes ={} dictionary.
+        #retrieve vote count of a candidate.
+        votes = candidate_votes[candidate_name]
+        #print(votes)
 
-    #Calculate the vote_percentage: float - it worked w/o as well- float form the module.
-    vote_percentage = (float(votes) / float(total_votes)) * 100  
+        #Calculate the vote_percentage: float - it worked w/o as well- float form the module.
+        vote_percentage = (float(votes) / float(total_votes)) * 100  
 
-    # To do: print out each candidate's name, vote count, and percentage of
-    # votes to the terminal.
-    #print(f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
+        # To do: print out each candidate's name, vote count, and percentage of
+        # votes to the terminal.
+    
+        candidate_results = (f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
+        #print each candidate's voter count and percentage to the terminal
+        print(candidate_results)
+        #Save the candidate results to our txt file.
+        txt_file.write(candidate_results)
 
-    #determine winning vote count and candidate.
-    #determine if the vote count that was calculated is greater than the winning_count.
-    if (votes > winning_count) and (vote_percentage > winning_percentage):
-        #if true then set winning_count = votes and winning_percent = vote_percentage
-        winning_count = votes
-        winning_percentage = vote_percentage
-        #set the winning_candidate equal to the candidate's name.
-        winning_candidate = candidate_name
+        #determine winning vote count and candidate.
+        #determine if the vote count that was calculated is greater than the winning_count.
+        if (votes > winning_count) and (vote_percentage > winning_percentage):
+            #if true then set winning_count = votes and winning_percent = vote_percentage
+            winning_count = votes
+            winning_percentage = vote_percentage
+            #set the winning_candidate equal to the candidate's name.
+            winning_candidate = candidate_name
 
-#To do: print out the winnning candidate, vote count and percentage to terminal.
-winning_candidate_summary = (
-    f"-------------------------\n"
-    f"Winner: {winning_candidate}\n"
-    f"Winning Vote Count: {winning_count:,}\n"
-    f"Winning Percentage: {winning_percentage:.1f}%\n"
-    f"-------------------------\n")
+    #To do: print out the winnning candidate, vote count and percentage to terminal.
+    winning_candidate_summary = (
+        f"-------------------------\n"
+        f"Winner: {winning_candidate}\n"
+        f"Winning Vote Count: {winning_count:,}\n"
+        f"Winning Percentage: {winning_percentage:.1f}%\n"
+        f"-------------------------\n")
 
-#print(winning_candidate_summary)
-
-
-    #declare new variable message, using f-string to print out full sentence.
-    #message = (f'{candidate_name} recieved {votes:,} votes, that is {vote_percentage:.2f}%')
-    #message1 is from the module as stated there:
-    #message1 = (f'{candidate_name}: recieved {vote_percentage:.2f}% of the vote.')
-
-    #print cndidate name and candidate votes, using f-string:
-    #print(message)
-    #print(message1)
-
-#Print the total votes (pay attention to indentation.)
-#print(total_votes)
-#Print candidate_options.
-#print(candidate_options)
-#Print candidate votes dictionary.
-#print(candidate_votes)
-
-#Using the with statement open the file as a text file.
-#with open(file_to_save, "w") as txt_file: #REMEMBER - with statement requires indentation!
-#outfile = open(file_to_save, "w") # --THIS LINE -- using open()/close() method to open file in write mode. (1)* USED TOGETHER
-    #Write some data to the file.
-    #txt_file.write("Countites in the Election\n-------------------------\nArapahoe\nDenver\nJefferson")
-    #txt_file.write("Denver, ")
-    #txt_file.write("Jefferson") # one way of writting separate elements in the file - or see above.
-#outfile.write("Hello World") # THIS LINE -- -- using open()/close() method to open file in write mode. (1)* USED TOGETHER
-
-#Close the file.
-#outfile.close()
+    #print(winning_candidate_summary)
 
 
-#Close the file. Closing the file is important! You can loose some data if not done so.
-#election_data.close()
+        #declare new variable message, using f-string to print out full sentence.
+        #message = (f'{candidate_name} recieved {votes:,} votes, that is {vote_percentage:.2f}%')
+        #message1 is from the module as stated there:
+        #message1 = (f'{candidate_name}: recieved {vote_percentage:.2f}% of the vote.')
+
+        #print cndidate name and candidate votes, using f-string:
+        #print(message)
+        #print(message1)
+
+    #Print the total votes (pay attention to indentation.)
+    #print(total_votes)
+    #Print candidate_options.
+    #print(candidate_options)
+    #Print candidate votes dictionary.
+    #print(candidate_votes)
+
+    #Using the with statement open the file as a text file.
+    #with open(file_to_save, "w") as txt_file: #REMEMBER - with statement requires indentation!
+    #outfile = open(file_to_save, "w") # --THIS LINE -- using open()/close() method to open file in write mode. (1)* USED TOGETHER
+        #Write some data to the file.
+        #txt_file.write("Countites in the Election\n-------------------------\nArapahoe\nDenver\nJefferson")
+        #txt_file.write("Denver, ")
+        #txt_file.write("Jefferson") # one way of writting separate elements in the file - or see above.
+    #outfile.write("Hello World") # THIS LINE -- -- using open()/close() method to open file in write mode. (1)* USED TOGETHER
+
+    #Close the file.
+    #outfile.close()
 
 
-#Total number of votes cast
-##Count all the votes form entire dataset {total_votes}
+    #Close the file. Closing the file is important! You can loose some data if not done so.
+    #election_data.close()
 
-#A complete list of candidates who received votes
-##Get all candidate names from the dataset + condition who recieved the votes.
 
-#Total number of votes each candidate received
-##Set condition for candidate name and count their votes {candidate_name:number_of_votes}
+    #Total number of votes cast
+    ##Count all the votes form entire dataset {total_votes}
 
-#Percentage of votes each candidate won
-## {candidate_name:number_of_votes} / {total_votes} * 100
+    #A complete list of candidates who received votes
+    ##Get all candidate names from the dataset + condition who recieved the votes.
 
-#The winner of the election based on popular vote
-##condition = the most votes: winner = candidate name.
+    #Total number of votes each candidate received
+    ##Set condition for candidate name and count their votes {candidate_name:number_of_votes}
+
+    #Percentage of votes each candidate won
+    ## {candidate_name:number_of_votes} / {total_votes} * 100
+
+    #The winner of the election based on popular vote
+    ##condition = the most votes: winner = candidate name.
