@@ -71,52 +71,65 @@ with open(file_to_load) as election_data:
         #Incrementing candidate votes by 1. INDENTATION = has to be aligned with If statement that for loop apply to this line of code.
         candidate_votes[candidate_name] += 1 
 
-    #use for loop to iterate through the candidate_option = [] list, to get the candidate name.
-    #Iterate through the candidate list/dictionary? CREATE A MAIN FOR LOOP TO LOOP THROUGH, EVERYTHING ELSE IS DEPENDENT ON THIS
-    #SEE THE PRINT MESSAGE - this how you iterating through print message!! 
-    for candidate_name in candidate_votes:
-        #print(candidate_name)
-            
+#Save the results to out text file.
+with open(file_to_save, "w") as txt_file:
+    #Print the final vote count to the terminal.
+    election_results = (
+        f"\nElection Results\n"
+        f"-------------------------\n"
+        f"Total Votes: {total_votes:,}\n"
+        f"-------------------------\n")
+    print(election_results, end="")
+    #Save the final vote count to the text file.
+    txt_file.write(election_results)
+
+
+#use for loop to iterate through the candidate_option = [] list, to get the candidate name.
+#Iterate through the candidate list/dictionary? CREATE A MAIN FOR LOOP TO LOOP THROUGH, EVERYTHING ELSE IS DEPENDENT ON THIS
+#SEE THE PRINT MESSAGE - this how you iterating through print message!! 
+for candidate_name in candidate_votes:
+    #print(candidate_name)
+                
     #use the for loop variable to retrieve the votes of the candidate from the candidate_votes ={} dictionary.
     #retrieve vote count of a candidate.
-        votes = candidate_votes[candidate_name]
-        #print(votes)
+    votes = candidate_votes[candidate_name]
+    #print(votes)
 
-        #Calculate the vote_percentage: float - it worked w/o as well- float form the module.
-        vote_percentage = (float(votes) / float(total_votes)) * 100  
+    #Calculate the vote_percentage: float - it worked w/o as well- float form the module.
+    vote_percentage = (float(votes) / float(total_votes)) * 100  
 
-        # To do: print out each candidate's name, vote count, and percentage of
-        # votes to the terminal.
-        print(f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
+    # To do: print out each candidate's name, vote count, and percentage of
+    # votes to the terminal.
+    #print(f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
 
-        #determine winning vote count and candidate.
-        #determine if the vote count that was calculated is greater than the winning_count.
-        if (votes > winning_count) and (vote_percentage > winning_percentage):
-            #if true then set winning_count = votes and winning_percent = vote_percentage
-            winning_count = votes
-            winning_percentage = vote_percentage
-            #set the winning_candidate equal to the candidate's name.
-            winning_candidate = candidate_name
+    #determine winning vote count and candidate.
+    #determine if the vote count that was calculated is greater than the winning_count.
+    if (votes > winning_count) and (vote_percentage > winning_percentage):
+        #if true then set winning_count = votes and winning_percent = vote_percentage
+        winning_count = votes
+        winning_percentage = vote_percentage
+        #set the winning_candidate equal to the candidate's name.
+        winning_candidate = candidate_name
 
-    #To do: print out the winnning candidate, vote count and percentage to terminal.
-    winning_candidate_summary = (
-        f"-------------------------\n"
-        f"Winner: {winning_candidate}\n"
-        f"Winning Vote Count: {winning_count:,}\n"
-        f"Winning Percentage: {winning_percentage:.1f}%\n"
-        f"-------------------------\n")
+#To do: print out the winnning candidate, vote count and percentage to terminal.
+winning_candidate_summary = (
+    f"-------------------------\n"
+    f"Winner: {winning_candidate}\n"
+    f"Winning Vote Count: {winning_count:,}\n"
+    f"Winning Percentage: {winning_percentage:.1f}%\n"
+    f"-------------------------\n")
 
-    print(winning_candidate_summary)
+#print(winning_candidate_summary)
 
 
-        #declare new variable message, using f-string to print out full sentence.
-        #message = (f'{candidate_name} recieved {votes:,} votes, that is {vote_percentage:.2f}%')
-        #message1 is from the module as stated there:
-        #message1 = (f'{candidate_name}: recieved {vote_percentage:.2f}% of the vote.')
+    #declare new variable message, using f-string to print out full sentence.
+    #message = (f'{candidate_name} recieved {votes:,} votes, that is {vote_percentage:.2f}%')
+    #message1 is from the module as stated there:
+    #message1 = (f'{candidate_name}: recieved {vote_percentage:.2f}% of the vote.')
 
-        #print cndidate name and candidate votes, using f-string:
-        #print(message)
-        #print(message1)
+    #print cndidate name and candidate votes, using f-string:
+    #print(message)
+    #print(message1)
 
 #Print the total votes (pay attention to indentation.)
 #print(total_votes)
