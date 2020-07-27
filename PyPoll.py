@@ -14,7 +14,8 @@ file_to_load = os.path.join("Resources","election_results.csv") # a way when we 
 
 #Open the election results and read the file. Using open() function
 #open(file_to_save, "w") # THIS LINE -- see function "w" = write to a file.
-#election_data = open(file_to_load, 'r') #--THIS LINE-- is another way to open/read the file. "With" method below is another way.
+#election_data = open(file_to_load, 'r') #--THIS LINE-- is another way to open/read the file. "With" method below is another way. 
+#opening file with "with open()" method doesn't require close() method.
 with open(file_to_load) as election_data:
 
     #To do: perform analysis.
@@ -24,15 +25,18 @@ with open(file_to_load) as election_data:
     file_reader = csv.reader(election_data)
 
     #Print each row in the CSV file.
-    for row in file_reader:
-        print(row)
+    #for row in file_reader:
+    #    print(row)
 
+    #Print the header row.
+    headers = next(file_reader)
+    print(headers)
 
 #Using the with statement open the file as a text file.
-with open(file_to_save, "w") as txt_file: #REMEMBER - with statement requires indentation!
+#with open(file_to_save, "w") as txt_file: #REMEMBER - with statement requires indentation!
 #outfile = open(file_to_save, "w") # --THIS LINE -- using open()/close() method to open file in write mode. (1)* USED TOGETHER
     #Write some data to the file.
-    txt_file.write("Countites in the Election\n-------------------------\nArapahoe\nDenver\nJefferson")
+    #txt_file.write("Countites in the Election\n-------------------------\nArapahoe\nDenver\nJefferson")
     #txt_file.write("Denver, ")
     #txt_file.write("Jefferson") # one way of writting separate elements in the file - or see above.
 #outfile.write("Hello World") # THIS LINE -- -- using open()/close() method to open file in write mode. (1)* USED TOGETHER
@@ -42,7 +46,7 @@ with open(file_to_save, "w") as txt_file: #REMEMBER - with statement requires in
 
 
 #Close the file. Closing the file is important! You can loose some data if not done so.
-election_data.close()
+#election_data.close()
 
 
 #Total number of votes cast
