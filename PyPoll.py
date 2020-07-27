@@ -54,20 +54,44 @@ with open(file_to_load) as election_data:
             #Add it to the list of candidates.
             candidate_options.append(candidate_name)
 
-            #Create a key"candidate_name" for candidate_name(=value as in Raymon Anthony Doane) AND...
+            #Create a key "candidate_name" to assign value = candidate_votes
             #...Begin tracking that candidate's vote count.
             #Initializing each candidate vote to zero.
             candidate_votes[candidate_name] = 0
 
         #Incrementing candidate votes by 1. INDENTATION = has to be aligned with If statement that for loop apply to this line of code.
         candidate_votes[candidate_name] += 1 
-    
+
+    #use for loop to iterate through the candidate_option = [] list, to get the candidate name.
+
+    #Iterate through the candidate list/dictionary? CREATE A MAIN FOR LOOP TO LOOP THROUGH, EVERYTHING ELSE IS DEPENDENT ON THIS
+    #SEE THE PRINT MESSAGE - this how you iterating through print message!! 
+    for candidate_name in candidate_votes:
+        #print(candidate_name)
+            
+    #use the for loop variable to retrieve the votes of the candidate from the candidate_votes ={} dictionary.
+    #retrieve vote count of a candidate.
+        votes = candidate_votes[candidate_name]
+        #print(votes)
+
+        #Calculate the vote_percentage:
+        vote_percentage = (votes / total_votes) * 100  
+
+        #declare new variable message, using f-string to print out full sentence.
+        message = (f'{candidate_name} recieved {votes:,} votes, that is {vote_percentage:.2f}%')
+        #message1 is from the module as stated there:
+        message1 = (f'{candidate_name}: recieved {vote_percentage:.2f}% of the vote.')
+
+        #print cndidate name and candidate votes, using f-string:
+        print(message)
+        print(message1)
+
 #Print the total votes (pay attention to indentation.)
 #print(total_votes)
 #Print candidate_options.
 #print(candidate_options)
 #Print candidate votes dictionary.
-print(candidate_votes)
+#print(candidate_votes)
 
 #Using the with statement open the file as a text file.
 #with open(file_to_save, "w") as txt_file: #REMEMBER - with statement requires indentation!
