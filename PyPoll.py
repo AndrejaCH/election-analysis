@@ -7,8 +7,8 @@ import os
 
 #Open a .CSV file. Set a variable, direct or indirect path to location, declare a function: ("r = reading", "w" = writting)
 #Assign a variable for the file to load and the path.
-file_to_save = os.path.join("Analysis", "election_analysis.txt") #-- THIS LINE -- to read the file
-#file_to_load = 'Resources/election_results.csv' #--THIS LINE -- a way to open the file when path is known
+file_to_save = os.path.join("Analysis", "election_analysis.txt") #-- THIS LINE -- Create a filename variable to a direct or indirect path to the file.
+#file_to_load = 'Resources/election_results.csv' #--THIS LINE -- a way to open the file when the path is known
 file_to_load = os.path.join("Resources","election_results.csv") # a way when we do not know the path
 
 #Open the election results and read the file. Using open() function
@@ -20,11 +20,16 @@ with open(file_to_load) as election_data:
     print(election_data)
 
 #Using the with statement open the file as a text file.
-outfile = open(file_to_save, "w")
-#Write some data to the file.
-outfile.write("Hello World")
+with open(file_to_save, "w") as txt_file: #REMEMBER - with statement requires indentation!
+#outfile = open(file_to_save, "w") # --THIS LINE -- using open()/close() method to open file in write mode. (1)* USED TOGETHER
+    #Write some data to the file.
+    txt_file.write("Arapahoe, ")
+    txt_file.write("Denver, ")
+    txt_file.write("Jefferson")
+#outfile.write("Hello World") # THIS LINE -- -- using open()/close() method to open file in write mode. (1)* USED TOGETHER
+
 #Close the file.
-outfile.close()
+#outfile.close()
 
 
 #Close the file. Closing the file is important! You can loose some data if not done so.
