@@ -18,6 +18,9 @@ total_votes = 0
 #Create an empty list candidate_options to hold candidate_name
 candidate_options = []
 
+#Create/declare an empty dictionary to hold candidate name and its votes count.
+candidate_votes = {}
+
 #Open the election results and read the file. Using open() function
 #open(file_to_save, "w") # THIS LINE -- see function "w" = write to a file.
 #election_data = open(file_to_load, 'r') #--THIS LINE-- is another way to open/read the file. "With" method below is another way. 
@@ -50,11 +53,21 @@ with open(file_to_load) as election_data:
         if candidate_name not in candidate_options:
             #Add it to the list of candidates.
             candidate_options.append(candidate_name)
+
+            #Create a key"candidate_name" for candidate_name(=value as in Raymon Anthony Doane) AND...
+            #...Begin tracking that candidate's vote count.
+            #Initializing each candidate vote to zero.
+            candidate_votes[candidate_name] = 0
+
+        #Incrementing candidate votes by 1. INDENTATION = has to be aligned with If statement that for loop apply to this line of code.
+        candidate_votes[candidate_name] += 1 
     
 #Print the total votes (pay attention to indentation.)
-print(total_votes)
-#Print candidate_options
-print(candidate_options)
+#print(total_votes)
+#Print candidate_options.
+#print(candidate_options)
+#Print candidate votes dictionary.
+print(candidate_votes)
 
 #Using the with statement open the file as a text file.
 #with open(file_to_save, "w") as txt_file: #REMEMBER - with statement requires indentation!
