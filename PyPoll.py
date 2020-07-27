@@ -15,6 +15,9 @@ file_to_load = os.path.join("Resources","election_results.csv") # a way when we 
 #Add the total vote counter = Initialize a total vote counter.
 total_votes = 0
 
+#Create an empty list candidate_options to hold candidate_name
+candidate_options = []
+
 #Open the election results and read the file. Using open() function
 #open(file_to_save, "w") # THIS LINE -- see function "w" = write to a file.
 #election_data = open(file_to_load, 'r') #--THIS LINE-- is another way to open/read the file. "With" method below is another way. 
@@ -37,9 +40,21 @@ with open(file_to_load) as election_data:
         #print(row) -we don't need to print it.
         #Increment the total_votes by 1 (add the total vote count).
         total_votes += 1
+
+        #Print the candidate name for each row
+        candidate_name = row[2]
+
+        #Add the candidate_name to the candidate_options list using append() method. 
+        #Selecting only unique names we set condition with "if statements" and membership operators.
+        #Reads as: If the candidate does not match any existing candidate...
+        if candidate_name not in candidate_options:
+            #Add it to the list of candidates.
+            candidate_options.append(candidate_name)
     
 #Print the total votes (pay attention to indentation.)
 print(total_votes)
+#Print candidate_options
+print(candidate_options)
 
 #Using the with statement open the file as a text file.
 #with open(file_to_save, "w") as txt_file: #REMEMBER - with statement requires indentation!
