@@ -7,7 +7,7 @@ import os
 
 #Open a .CSV file. Set a variable, direct or indirect path to location, declare a function: ("r = reading", "w" = writting)
 #Assign a variable to save the file to a path.
-file_to_save = os.path.join("Analysis", "election_analysis.txt") #-- THIS LINE -- Create a filename variable to a direct or indirect path to the file.
+file_to_save = os.path.join("election_analysis.txt") #-- THIS LINE -- Create a filename variable to a direct or indirect path to the file.
 #file_to_load = 'Resources/election_results.csv' #--THIS LINE -- a way to open the file when the path is known
 #Assign a variable to load a file from a path.
 file_to_load = os.path.join("Resources","election_results.csv") # a way when we do not know the path
