@@ -15,7 +15,6 @@ The purpose of this analysis is to generate a vote count report to certify U.S. 
    5. The winner of the election based on popular vote.
 
 
-
 ### Background
 The results are gathered with three primary voting methods:
   - Mail-in ballots, that are hand-counted at the central office.
@@ -28,34 +27,33 @@ Altogether the votes cast by these three methods will determine the final electi
   - Candidate Name (Column C).
 
 ## Resources
-- Data Source: ![election_results.csv](Resources/election_results.csv)
+- Data Source: [election_results.csv](Resources/election_results.csv)
 - Software: Python 3.7.7, Visual Studio Code 1.47.3 
+- Report: [election_results.txt](Analysis/election_results.txt)
 
 ## Results
-Results are grouped into two subcategories *results per candidate* and *results per county*:
-
 ### Per candidate
 - The analysis of the election shows that:
-  - There were 369,711 votes cast in the election.
+  - There were **369,711** votes cast in the election.
 - The candidates were:
     - Charles Casper Stockham
     - Diana DeGette
     - Raymon Anthony Doane
 - The candidate results were:
-    - Charles Casper Stockham received 23.0% of the vote and 85,213 of votes.
-    - Diana DeGette received 73.8% of the vote and 272,892 of votes.
-    - Raymon Anthony Doane received 3.1% of the vote and 11,606 of votes.
+    - Charles Casper Stockham received **23.0%** of the vote and **85,213** of votes.
+    - Diana DeGette received **73.8%** of the vote and **272,892** of votes.
+    - Raymon Anthony Doane received **3.1%** of the vote and **11,606** of votes.
 - The winner of the election was:
-    - Diana DeGette, who received 73.8% of the vote and 272,892 of votes.
+    - **Diana DeGette**, who received **73.8%** of the vote and **272,892** of votes.
 
 ### Per County
 - The analysis of the election shows that:
 - The counties results were:
-    - Jefferson with a 10.5% vote of the total count and 38,855 voter turnout.
-    - Denver with an 82.8% vote of the total count and 306,055 voter turnout.
-    - Arapahoe with a 6.7% vote of the total count and 24,801 voter turnout.
+    - Jefferson with a **10.5%** vote of the total count and **38,855** voter turnout.
+    - Denver with an **82.8%** vote of the total count and **306,055** voter turnout.
+    - Arapahoe with a **6.7%** vote of the total count and **24,801** voter turnout.
 - The county with the largest voter turnout was:
-    - Denver with an 82.8% vote of the total count and 306,055 voter turnout.
+    - **Denver** with an **82.8%** vote of the total count and **306,055** voter turnout.
 
 
 <p align="center">
@@ -78,32 +76,31 @@ import os
 ```
 
 - `import csv` - allows to easily pull in data from external CSV files and perform operations on them (and also comes with the following functions):\
-
-      - reader() - reads each row from the csv file and return as a list of strings.
-(important to know how returns the data, and knowing the properties of a list, mutable and ordered = has indexes, so we can access the elements through this index - see the example for loop to iterate through the list!)
-
-      - next() - This method will skip the first row and return the next item in the list(most commonly to skip header = first row.)
+      - `reader()` - reads each roe from the csv file and return data as a lists of strings (each row is a new list).
       
-- `import os` - allows to interact with the operating system, and comes also with the following 2 submodules (we use this module when we do not now direct `path` to a file, but we know the directory that is in* see direct `path example`):
+It is important to know how the data are returned after reading, and knowing the properties of a dataset! `reader()`, will return data as a list (each row is a new list). Lists are mutable and ordered (indexed), so we can access (loop through) the elements via indexes.
+      - `next()` - skips the first row (most commonly used to skip a header row).
 
-      - .path - allows us to access files on different operating systems
-      
-      - .join() - joins our file path components together when they are provided as separate strings; then, it returns a direct path with the appropriate operating system separator, forward slash for macOS or backward slash for Windows.
+- `import os` - allows to interact with the operating system, and comes also with the following 2 submodules (this module is used when we do not now direct `path` to a file, but we know the name of directory):
+      - `path()` - allows us to access files on different operating systems.
+      - `join()` - joins file path components together when they are provided as separate strings; then, it returns a direct path with the appropriate operating system                              separator, forward slash for macOS or backward slash for Windows.
 
 *note: there is also a way to open a file with a direct path.  `file_to_load = 'Resources/election_results.csv'` In this case, we don’t need to `import dependency `import os`.*
 
 ***2. Declare a variable, and load a file from the path.***
 
+```python s=
 `file_to_load = os.path.join("Resources", "election_results.csv")`
-
-variable = declaring a variable for the file
-Provide directory “Resources”
-Provide file “election_results.csv”
+```
+file_to_load - declaring a variable for the file
+Resources - directory of the file
+election_results.csv - name of the file
 
 *Important directory has to be provided exactly, letter case matters!*
 
 ***3. Open and read the file:***
-```
+
+```python s=
 with open(file_to_load) as election_data:
    file_to_read = csv.reader(election_data)
 ```
@@ -191,17 +188,23 @@ if (votes > winning_count) and (vote_percentage > winning_percentage):
 All values *votes* are compared against each other by declaring a new variable `wining_count`. When the condition is `True`, meaning the highest value is found, the value is passed to new variables `winning_count` `winning_candidate` ` winning_percentage`.
 
 ## Summary 
+Writing scripts in Python has many advantages, automating processes, fast execution of the code fast, and reusing the code for similar projects. This code quickly returns numerous data for U.S. Congressional Precinct in Colorado and can be easily used but for other elections as well.
+This code will automatically:
+- find candidates names,
+- find counties,  
+- count votes for each candidate and calculate vote %
+- count turnout per county and calculate their %
+- declare a candidate winner base on the highest vote count and % 
+- declare a county with the highest turnout.
 
-Writing scripts in Python has many advantages. We can automate processes, execute code fast, and reuse the code for similar reports. This code quickly returns numerous data for U.S. Congressional Precinct in Colorado and can be used not only for this particular election analysis but also for other elections. 
+Using this code can be used on similar projects such as other congressional districts election, senatorial districts, local election, and more.
 
-- By importing other dependencies such as `import json` code can read other datasets.
-- In case the csv file has a different order of columns, we can easily adjust those in order to Python script execute the code correctly.
-- In case that elections are time-sensitive and we would like a report that tells how candidates are standing in the middle of the election, we could import additional dependency `datetime` to see results at the time when report is done.
-- Since Python script finds unique names of candidates and counties we could use the same report with a completely new dataset (candidates names and counties). The only thing we need to ensure that columns match the existing data set.
-- We can use this code on much larger dataset with more candidates and counties.
-- Accessing the data set has to be adjusted and redirected to the right folder 
-- Writing a report has to be adjusted and redirected to the right directory
-- Finding a winning candidate is automatic, so can be used in a much larger dataset.
+- This code reads csv files but can be easily converted to read other files such as *json*, by importing other dependencies for example `import json`.
+- This code reads candidate name on 2nd index and county on 1st index, but in case of a different structure of the data set this can be easily converted.
+- By importing dependency `datetime` we could perform real-time results for election in progress. `datetime` dependency will capture exact time when the analysis is executed.
+- Since Python script finds unique names of candidates and counties we cab reuse this code on a much larger dataset with more candidates and counties or other areas.
+- This code accesses the dataset in a specific directory and writes a report to a specific file, but this can be easily fixed by renaming a directory and file in the code itself.
+
 
 
 
