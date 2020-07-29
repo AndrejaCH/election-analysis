@@ -69,7 +69,7 @@ An example of output from a command line in VS Code and in txt file.
 #### Open, read & write the file
 One of the most important things in data analytics is opening, reading, and writing a file. Opening and reading a file is the first step that needs to be done in order to start data analysis. Writing a report is as important and since writing a file has a similar syntax it is included in this chapter.
 
-***1. Import dependencies:***
+***1. Import dependencies.***
 
 ```python s=
 import csv
@@ -78,28 +78,28 @@ import os
 
 - `import csv` - allows to easily pull in data from external CSV files and perform operations on them (and also comes with the following functions):
    - `next()` - skips the first row (most commonly used to skip a header row).
-   - `reader()` - reads each roe from the csv file and return data as a lists of strings (each row is a new list).
+   - `reader()` - reads each row from the csv file and return data as a lists of strings (each row is a new list).
       
 It is important to know how the data are returned after reading, and knowing the properties of a dataset! `reader()`, will return data as a list (each row is a new list). Lists are mutable and ordered (indexed), so we can access (loop through) the elements via indexes.
 
-- `import os` - allows to interact with the operating system, and comes also with the following 2 submodules (this module is used when we do not now direct `path` to a file, but we know the name of directory):
+- `import os` - allows to interact with the operating system, and comes also with the following 2 submodules:
    - `path()` - allows us to access files on different operating systems.
    - `join()` - joins file path components together when they are provided as separate strings; then, it returns a direct path with the appropriate operating system                              separator, forward slash for macOS or backward slash for Windows.
 
-*note: there is also a way to open a file with a direct path.  `file_to_load = 'Resources/election_results.csv'` In this case, we don’t need to `import dependency `import os`.*
+*note: there is also a way to open a file with a direct path.  `file_to_load = 'Resources/election_results.csv'` In this case, we don’t need to import dependency `import os`.*
 
 ***2. Declare a variable, and load a file from the path.***
 
 ```python s=
 file_to_load = os.path.join("Resources", "election_results.csv")
 ```
-file_to_load - declaring a variable for the file
-Resources - directory of the file
-election_results.csv - name of the file
+- `file_to_load` - declaring a variable for the file
+- `Resources` - directory of the file
+- `election_results.csv` - name of the file
 
 *Important directory has to be provided exactly, letter case matters!*
 
-***3. Open and read the file:***
+***3. Open and read the file.***
 
 ```python s=
 with open(file_to_load) as election_data:
@@ -108,14 +108,13 @@ with open(file_to_load) as election_data:
 
 - `with open()` - statement opens the file and ensures the proper acquisition of data without having to close the file, to ensure that the data isn’t lost or corrupted.
 - `as <new_variable_name>` - passing a variable to a new name.
-- `file_to_read` - new variable 
 - `csv.reader()` - please see the explanation in the pharagraph above. 
 - `file_to_read` - a new variable that we will use in the for loop to access the elements via indexes.
 - `election_data` - passing an argument to a function, a file that we want to function to read.
 
 *Note: function `with open(file_to_load, “r”)` doesn’t have declared method “r” as in “read mode”, because skipping it, set default settings, that is read or “r” mode.
 
-***4. Declare a header row and skip the first row:***
+***4. Declare a header row and skip the first row.***
 
 ```python s=
 header = next(file_to_read)
@@ -123,10 +122,14 @@ header = next(file_to_read)
 - `next()` - function will skip first row in file_to_read
 
 <p align="center">
+A full code to open and read a file.
+</p>
+
+<p align="center">
 <img src="Graphics/OpenAndReadFullCode.PNG" width="60%" height="60%"> 
 </p>
 
-***5. Additional code for writing a file:***
+***5. Additional code for writing a file.***
 
 ```python s=
 file_to_save = os.path.join("Analysis", "election_results.txt")
@@ -141,7 +144,11 @@ In this function, we must specify the method `“w”` as in `write mode` in ord
 ```python s=
 txt_file.write(election_results)
 ```
-With the function `.write()` we declare that we want to write in txt_file (this is a new variable that was passed on from “original variable file_to_save”). In parentheses, we declare what we want to be written (refers to a variable election_results).
+With the function `write()` we declare that we want to write in txt_file. txt_file is a new variable that is passed on from “original variable file_to_save”. In parentheses (election_results) is a name of a variable that contains data about what we want to write in a file.
+
+<p align="center">
+A full code to open and write a file.
+</p>
 
 <p align="center">
 <img src="Graphics/OpenAndWriteFullCode.PNG" width="60%" height="60%"> 
@@ -205,9 +212,9 @@ Writing scripts in Python has many advantages, automating processes, fast execut
 This code will automatically:
 - find candidates names,
 - find counties,  
-- count votes for each candidate and calculate vote %
-- count turnout per county and calculate their %
-- declare a candidate winner base on the highest vote count and % 
+- count votes for each candidate and calculate vote %,
+- count turnout per county and calculate their %,
+- declare a candidate winner base on the highest vote count and %,
 - declare a county with the highest turnout.
 
 Using this code can be used on similar projects such as other congressional districts election, senatorial districts, local election, and more.
