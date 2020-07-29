@@ -32,7 +32,7 @@ Altogether the votes cast by these three methods will determine the final electi
 - Report: [election_results.txt](Analysis/election_results.txt)
 
 ## Results
-### Per candidate
+### Per Candidate
 - The analysis of the election shows that:
   - There were **369,711** votes cast in the election.
 - The candidates were:
@@ -75,22 +75,22 @@ import csv
 import os
 ```
 
-- `import csv` - allows to easily pull in data from external CSV files and perform operations on them (and also comes with the following functions):\
-      - `reader()` - reads each roe from the csv file and return data as a lists of strings (each row is a new list).
+- `import csv` - allows to easily pull in data from external CSV files and perform operations on them (and also comes with the following functions):
+   - `reader()` - reads each roe from the csv file and return data as a lists of strings (each row is a new list).
       
 It is important to know how the data are returned after reading, and knowing the properties of a dataset! `reader()`, will return data as a list (each row is a new list). Lists are mutable and ordered (indexed), so we can access (loop through) the elements via indexes.
-      - `next()` - skips the first row (most commonly used to skip a header row).
+   - `next()` - skips the first row (most commonly used to skip a header row).
 
 - `import os` - allows to interact with the operating system, and comes also with the following 2 submodules (this module is used when we do not now direct `path` to a file, but we know the name of directory):
-      - `path()` - allows us to access files on different operating systems.
-      - `join()` - joins file path components together when they are provided as separate strings; then, it returns a direct path with the appropriate operating system                              separator, forward slash for macOS or backward slash for Windows.
+   - `path()` - allows us to access files on different operating systems.
+   - `join()` - joins file path components together when they are provided as separate strings; then, it returns a direct path with the appropriate operating system                              separator, forward slash for macOS or backward slash for Windows.
 
 *note: there is also a way to open a file with a direct path.  `file_to_load = 'Resources/election_results.csv'` In this case, we don’t need to `import dependency `import os`.*
 
 ***2. Declare a variable, and load a file from the path.***
 
 ```python s=
-`file_to_load = os.path.join("Resources", "election_results.csv")`
+file_to_load = os.path.join("Resources", "election_results.csv")
 ```
 file_to_load - declaring a variable for the file
 Resources - directory of the file
@@ -105,17 +105,21 @@ with open(file_to_load) as election_data:
    file_to_read = csv.reader(election_data)
 ```
 
-`with open()` - statement opens the file and ensures the proper acquisition of data without having to close the file, to ensure that the data isn’t lost or corrupted.
-`as <new_variable_name>` - passing a variable to a new name.
-`file_to_read` - new variable 
-csv.reader() - please see the explanation in #1. It is important to know how csv.reader returns data = as list and the properties. In the code that follows we will use variable `file_to_read` in the for loop to access the indexes.
-(election_data) - passing an argument to a function, a file that we want to function to read.
+- `with open()` - statement opens the file and ensures the proper acquisition of data without having to close the file, to ensure that the data isn’t lost or corrupted.
+- `as <new_variable_name>` - passing a variable to a new name.
+- `file_to_read` - new variable 
+- `csv.reader()` - please see the explanation in the pharagraph above. 
+- `file_to_read` - a new variable that we will use in the for loop to access the elements via indexes.
+- `election_data` - passing an argument to a function, a file that we want to function to read.
+
 *Note: function `with open(file_to_load, “r”)` doesn’t have declared method “r” as in “read mode”, because skipping it, set default settings, that is read or “r” mode.
 
 ***4. Declare a header row and skip the first row:***
 
-`header = next(file_to_read)`
-next() function will skip first row in file_to_read
+```python s=
+header = next(file_to_read)
+```
+- `next()` - function will skip first row in file_to_read
 
 <p align="center">
 <img src="Graphics/OpenAndReadFullCode.PNG" width="60%" height="60%"> 
@@ -123,13 +127,19 @@ next() function will skip first row in file_to_read
 
 ***5. Additional code for writing a file:***
 
-`file_to_save = os.path.join("Analysis", "election_results.txt")`
+```python s=
+file_to_save = os.path.join("Analysis", "election_results.txt")
+```
 This line of code will create a file in the “Analysis folder” if one doesn’t exist yet. The folder must already exist.
 
-`with open(file_to_save, "w") as txt_file:`
+```python s=
+with open(file_to_save, "w") as txt_file:
+```
 In this function, we must specify the method `“w”` as in `write mode` in order to be able to write in a file.
 
-`txt_file.write(election_results)`
+```python s=
+txt_file.write(election_results)
+```
 With the function `.write()` we declare that we want to write in txt_file (this is a new variable that was passed on from “original variable file_to_save”). In parentheses, we declare what we want to be written (refers to a variable election_results).
 
 <p align="center">
@@ -139,18 +149,20 @@ With the function `.write()` we declare that we want to write in txt_file (this 
 #### Looping through dictionaries and the lists
 In order to correctly retrieve elements or loop through specific data sets, it is essential to know their properties. Lists are mutable and ordered (indexing is possible), dictionaries are mutable and unordered (indexing is not possible), dictionary keys are immutable and unique, while values are more flexible and can be mutable.
 
-```
-#retrieving unique values with a conditional statement and membership operator.
- if candidate_name not in candidate_options:
+```python s=
+   #retrieving unique values with a conditional statement and membership operator.
+   if candidate_name not in candidate_options:
 
-            # Add the candidate name to the candidate list with the append() method.
-            candidate_options.append(candidate_name)
+          # Add the candidate name to the candidate list with the append() method.
+          candidate_options.append(candidate_name)
             
-# And begin tracking that candidate's voter count. Assign and store new value with `= 0` to the key (candidate_name) in the dictionary candidate_votes.
-            candidate_votes[candidate_name] = 0
+          # And begin tracking that candidate's voter count. 
+          #Assign and store new value with `= 0` to the key (candidate_name) in the dictionary candidate_votes.
+          candidate_votes[candidate_name] = 0
 
-# Add a vote to that candidate's count. Indentation is important (it has to be aligned with if statement, otherwise values wouldn’t be stored properly)
-candidate_votes[candidate_name] += 1
+   # Add a vote to that candidate's count. Indentation is important 
+   #(it has to be aligned with if statement, otherwise values wouldn’t be stored properly)
+   candidate_votes[candidate_name] += 1
 ```
 
 *Note this line of code is inside the `for loop`.*
@@ -162,7 +174,7 @@ votes - accessing values with a variable
 candidate name - key
 candidate_votes - dictionary
 
-```
+```python s=
 For candidate_name in candidate_votes:
         votes = candidate_votes.get(candidate_name)
 ```
@@ -172,13 +184,13 @@ The following code determines a winner based on the highest vote count.
 
 Declaring and initializing variables
 
-```
+```python s=
 winning_candidate = ""
 winning_count = 0
 winning_percentage = 0
 ```
 Determine winning vote count, winning percentage, and candidate.
-```
+```python s=
 if (votes > winning_count) and (vote_percentage > winning_percentage):
     winning_count = votes
     winning_candidate = candidate_name
