@@ -73,8 +73,8 @@ One of the most important things in data analytics is opening, reading, and writ
 ***1. Import dependencies:***
 
 ```python s=
-"import csv
-import os"
+import csv
+import os
 ```
 
 - `import csv` - allows to easily pull in data from external CSV files and perform operations on them (and also comes with the following functions):\
