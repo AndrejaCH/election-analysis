@@ -1,6 +1,5 @@
 # -*- coding: UTF-8 -*-
 """PyPoll Homework Challenge starter code."""
-
 # Add our dependencies.
 import csv
 import os
@@ -13,14 +12,13 @@ file_to_save = os.path.join("Analysis", "election_results.txt")
 # Initialize a total vote counter.
 total_votes = 0
 
-# Candidate Options and candidate votes.
+# Candidate options and candidate votes.
 candidate_options = []
 candidate_votes = {}
 
 # 1: Create a county list and county votes dictionary.
 county_list = []
 county_votes = {}
-
 
 # Track the winning candidate, vote count and percentage
 winning_candidate = ""
@@ -102,13 +100,16 @@ with open(file_to_save, "w") as txt_file:
          # 6d: Print the county results to the terminal.
         county_results = (f"{county_name}: {all_votes_percentage:.1f}% ({all_votes:,})\n")
         print(county_results)
+
          # 6e: Save the county votes to a text file.
         txt_file.write(county_results)
+
          # 6f: Write a decision statement to determine the winning county and get its vote count.
         if (all_votes > largest_turnout_count) and (all_votes_percentage > largest_turnout_percentage):
             largest_turnout_count = all_votes
             largest_turnout_percentage = all_votes_percentage
             largest_turnout_county = county_name
+            
     # 7: Print the county with the largest turnout to the terminal.
     winning_county_summary = (
         f"\n-------------------------\n"
