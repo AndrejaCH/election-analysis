@@ -8,10 +8,12 @@ The purpose of this analysis is to generate a vote count report to certify U.S. 
 
    1. The total number of votes cast.
    2. The complete list of counties in the congressional precinct, including 
-   the percentage of votes from each county out of the total count and the voter turnout for each county. 
+      - the percentage of votes from each county out of the total count and 
+      - the voter turnout for each county. 
    3. The county with the highest turnout.
    4. The complete list of candidates who received votes, including 
-   the percentage of votes each candidate won and the total number of votes each candidate received.
+      - the percentage of votes each candidate won and 
+      - the total number of votes each candidate received.
    5. The winner of the election based on popular vote.
 
 
@@ -28,7 +30,9 @@ Altogether the votes cast by these three methods will determine the final electi
 
 ## Resources
 - Data Source: [election_results.csv](Resources/election_results.csv)
-- Software: Python 3.7.7, Visual Studio Code 1.47.3 
+- Software: 
+   - Python 3.7.7, 
+   - Visual Studio Code 1.47.3 
 - Report: [election_results.txt](Analysis/election_results.txt)
 
 ## Results
@@ -76,10 +80,10 @@ import os
 ```
 
 - `import csv` - allows to easily pull in data from external CSV files and perform operations on them (and also comes with the following functions):
+   - `next()` - skips the first row (most commonly used to skip a header row).
    - `reader()` - reads each roe from the csv file and return data as a lists of strings (each row is a new list).
       
 It is important to know how the data are returned after reading, and knowing the properties of a dataset! `reader()`, will return data as a list (each row is a new list). Lists are mutable and ordered (indexed), so we can access (loop through) the elements via indexes.
-   - `next()` - skips the first row (most commonly used to skip a header row).
 
 - `import os` - allows to interact with the operating system, and comes also with the following 2 submodules (this module is used when we do not now direct `path` to a file, but we know the name of directory):
    - `path()` - allows us to access files on different operating systems.
