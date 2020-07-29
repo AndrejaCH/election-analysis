@@ -5,7 +5,7 @@
 ## Project Overview
 ### Purpose
 The purpose of this analysis is to generate a vote count report to certify U.S. congressional race in Colorado precinct and represent:
-
+***
    1. The total number of votes cast.
    2. The complete list of counties in the congressional precinct, including 
       - the percentage of votes from each county out of the total count and 
@@ -15,7 +15,7 @@ The purpose of this analysis is to generate a vote count report to certify U.S. 
       - the percentage of votes each candidate won and 
       - the total number of votes each candidate received.
    5. The winner of the election based on popular vote.
-
+***
 
 ### Background
 The results are gathered with three primary voting methods:
@@ -23,10 +23,7 @@ The results are gathered with three primary voting methods:
   - Punch cards, that are collected and fed into a machine that tabulates votes and then sends the results to the central office.
   - DRE (direct-recording electronic counting) memory cards are read by a computer, and sent to the central office.
 
-Altogether the votes cast by these three methods will determine the final election results.  After the votes are counted, all results are gathered in a .csv file. The file contains three columns with the following headers: 
-  - Ballot ID (Column A). 
-  - County (Column B).
-  - Candidate Name (Column C).
+Altogether the votes cast by these three methods will determine the final election results.  After the votes are counted, all results are gathered in a .csv file. The file contains three columns with the following headers: **Ballot ID** (Column A), **County** (Column B), **Candidate Name** (Column C).
 
 ## Resources
 - Data Source: [election_results.csv](Resources/election_results.csv)
