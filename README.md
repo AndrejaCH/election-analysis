@@ -66,7 +66,7 @@ An example of output from a command line in VS Code and in txt file.
 </p>
 
 ### Overview of the methods and code
-#### Open, read & write the file
+#### :o: Open, read & write the file
 One of the most important things in data analytics is opening, reading, and writing a file. Opening and reading a file is the first step that needs to be done in order to start data analysis. Writing a report is as important and since writing a file has a similar syntax it is included in this chapter.
 
 ***1. Import dependencies.***
@@ -154,7 +154,7 @@ A full code to open and write a file.
 <img src="Graphics/OpenAndWriteFullCode.PNG" width="60%" height="60%"> 
 </p>
 
-#### Looping through dictionaries and the lists
+#### :o: Looping through dictionaries and the lists
 In order to correctly retrieve elements or loop through specific data sets, it is essential to know their properties. Lists are mutable and ordered (indexing is possible), dictionaries are mutable and unordered (indexing is not possible), dictionary keys are immutable and unique, while values are more flexible and can be mutable.
 
 ```python s=
@@ -175,7 +175,7 @@ In order to correctly retrieve elements or loop through specific data sets, it i
 
 *Note this line of code is inside the `for loop`.*
 
-#### get() method 
+#### :o: get() method 
 
 With get() method we can retrieves values from a dictionary based on their keys:
 votes - accessing values with a variable
@@ -187,7 +187,7 @@ For candidate_name in candidate_votes:
         votes = candidate_votes.get(candidate_name)
 ```
 
-#### Finding a winner
+#### :o: Finding a winner
 The following code determines a winner based on the highest vote count. 
 
 Declaring and initializing variables
