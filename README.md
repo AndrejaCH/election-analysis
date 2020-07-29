@@ -14,6 +14,8 @@ The purpose of this analysis is to generate a vote count report to certify U.S. 
    the percentage of votes each candidate won and the total number of votes each candidate received.
    5. The winner of the election based on popular vote.
 
+
+
 ### Background
 The results are gathered with three primary voting methods:
   - Mail-in ballots, that are hand-counted at the central office.
@@ -70,16 +72,22 @@ One of the most important things in data analytics is opening, reading, and writ
 
 ***1. Import dependencies:***
 
+```python
+s= "import csv
+import os"
+print s
 ```
-import csv
-import os
-```
-- `import csv` - allows to easily pull in data from external CSV files and perform operations on them (and also comes with the following functions:)
+- `import csv` - allows to easily pull in data from external CSV files and perform operations on them (and also comes with the following functions):\
+
       - reader() - reads each row from the csv file and return as a list of strings.
 (important to know how returns the data, and knowing the properties of a list, mutable and ordered = has indexes, so we can access the elements through this index - see the example for loop to iterate through the list!)
+
       - next() - This method will skip the first row and return the next item in the list(most commonly to skip header = first row.)
+      
 - `import os` - allows to interact with the operating system, and comes also with the following 2 submodules (we use this module when we do not now direct `path` to a file, but we know the directory that is in* see direct `path example`):
+
       - .path - allows us to access files on different operating systems
+      
       - .join() - joins our file path components together when they are provided as separate strings; then, it returns a direct path with the appropriate operating system separator, forward slash for macOS or backward slash for Windows.
 
 *note: there is also a way to open a file with a direct path.  `file_to_load = 'Resources/election_results.csv'` In this case, we don’t need to `import dependency `import os`.*
@@ -97,7 +105,7 @@ Provide file “election_results.csv”
 ***3. Open and read the file:***
 ```
 with open(file_to_load) as election_data:
-file_to_read = csv.reader(election_data)
+   file_to_read = csv.reader(election_data)
 ```
 
 `with open()` - statement opens the file and ensures the proper acquisition of data without having to close the file, to ensure that the data isn’t lost or corrupted.
