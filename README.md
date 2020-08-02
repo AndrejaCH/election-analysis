@@ -97,7 +97,7 @@ file_to_load = os.path.join("Resources", "election_results.csv")
 - `Resources` - directory of the file.
 - `election_results.csv` - name of the file.
 
-:exclamation: Directory has to be provided exactly, letter case matters!
+:exclamation: Directory has to be provided exactly, letter case matters.
 
 ***3. Open and read the file.***
 
@@ -176,20 +176,24 @@ In order to correctly retrieve elements or loop through specific data sets, it i
 
 *Note: this line of code is inside the `for loop`.*
 
-#### :o: get() method 
+#### :o: The get() method 
 
-With get() method we can retrieve values from a dictionary based on their keys. (in this case we are assigning a new value (votes) to a key).
-!!! see two diferent methods!!!! PyPoll and PyPollChallenge!!!!
-
+There are two ways to retrive values from a dictionary by its keys. With **"square brackets"** or with **"get()" method**:
+with square brackets:
 ```python s=
-For candidate_name in candidate_votes:
+for candidate_name in candidate_votes:
+   votes = candidate_votes[candidate_name]
+```
+with get() method:
+```python s=
+for candidate_name in candidate_votes:
         votes = candidate_votes.get(candidate_name)
 ```
-- `votes` - accessing values with a new variable
+- `votes` - accessing/retrieving values with a new variable
 - `candidate name` - dictoinary's key
 - `candidate_votes` - dictionary
 
-:exclamation: get() looks up values in a dictionary, but unlike square brackets, get() returns "None" or a default value of your choice, if the key is not found. If you expect look-ups to sometimes fail, get() might be a better tool than normal square brackets look-ups because errors can crash your program (4).
+:exclamation: In both cases we are retrieving or accessing values from a dictionary based on their keys. There is a difference in syntax `[] brackets` vs `() brackets` yet, the idea is the same. get() method looks up values in a dictionary, but unlike square brackets, get() returns "None" or a default value of your choice, if the key is not found. If you expect look-ups to sometimes fail, get() might be a better tool than normal square brackets look-ups because errors can crash your program (4).
 
 #### :o: Finding a winner
 The following code determines a winner based on the highest vote count. 
@@ -222,16 +226,16 @@ This code will automatically:
 
 Using this code can be used on similar projects such as other congressional districts election, senatorial districts, local election, and more.
 
-- This code reads csv files but can be easily converted to read other files such as *json*, by importing other dependencies for example `import json`.
-- This code reads candidate name on 2nd index and county on 1st index, but in case of a different structure of the data set this lines of codes `candidate_name = row[2]` and    `county_name = row[1]` can be easily converted.
-- By importing dependency `datetime` we could perform real-time results for election in progress. `datetime` dependency will capture exact time when the analysis is executed.
-- Since Python script finds unique names of candidates and counties we can reuse this code on a much larger dataset with more candidates, more counties or other areas.
-- This code accesses the dataset in a specific directory and writes a report to a specific file, but this specific lines of codes  `file_to_load = os.path.join("Resources","election_results.csv")` and `file_to_save = os.path.join("Analysis", "election_analysis.txt")` can be easily fixed by renaming a directory and file in the code itself.
+- [x] This code reads csv files but can be easily converted to read other files such as *json*, by importing other dependencies for example `import json`.
+- [x] This code reads candidate name on 2nd index and county on 1st index, but in case of a different structure of the data set this lines of codes `candidate_name = row[2]` and    `county_name = row[1]` can be easily converted.
+- [x] By importing dependency `datetime` we could perform real-time results for election in progress. `datetime` dependency will capture exact time when the analysis is executed.
+- [x] Since Python script finds unique names of candidates and counties we can reuse this code on a much larger dataset with more candidates, more counties or other areas.
+- [x] This code accesses the dataset in a specific directory and writes a report to a specific file, but this specific lines of codes  `file_to_load = os.path.join("Resources","election_results.csv")` and `file_to_save = os.path.join("Analysis", "election_analysis.txt")` can be easily fixed by renaming a directory and file in the code itself.
 
 ## References
-(1)Python Crash Course page 192!
-(2) https://docs.python.org/3/library/functions.html#next
-(3) https://courses.bootcampspot.com/courses/200/pages/3-dot-4-2-open-and-read-files-using-python?module_item_id=57541 3.4.2.
-(4) (Udacity/Intro to Python programming/lesson 3 13. Dictionaries na Indentety operators https://classroom.udacity.com/courses/ud1110/lessons/c06382b2-cb27-4aac-a2bd-eb754fd13914/concepts/47a34480-110c-4cfa-be87-73278fc1a1e3)
+(1) Eric Mathews. *Python Crash Course 2nd edition* SF: no starch press, 2019. Print (page 192).
+(2) Build-in Functions, https://docs.python.org/3/library/functions.html#next, *Python Software Foundation*, Web 31 Jul 2020.
+(3) "Module 3: PyCity Schools with Pandas." https://courses.bootcampspot.com/courses/200/pages/3-dot-4-2-open-and-read-files-using-python?module_item_id=57541, Trilogy Education Services, 2000. Web Web 31 Jul 2020.
+(4) Udacity. *Intro to Python programming: Dictionaries na Indentety operators*,  https://classroom.udacity.com/courses/ud1110/lessons/c06382b2-cb27-4aac-a2bd-eb754fd13914/concepts/47a34480-110c-4cfa-be87-73278fc1a1e3, Web 31 Jul 2020.
 
 ## Additional useful articles
