@@ -15,6 +15,11 @@ The purpose of this analysis is to generate a vote count report to certify U.S. 
       - the **percentage of votes each candidate** won and 
       - the **total number of votes each candidate** received.
    5. The **winner of the election** based on popular vote.
+   
+<p align="center">
+<img src="Graphics/Colorado.PNG" width="40%" height="40%">
+</p>
+  
 ***
 
 ### Background
@@ -26,10 +31,14 @@ The results are gathered with three primary voting methods:
 Altogether the votes cast by these three methods determine the final election results. After the votes are counted, all results are gathered in a **csv file**. The file contains three columns with the following headers: **Ballot ID** (Column A), **County** (Column B), and **Candidate Name** (Column C).
 
 ## Resources
+
 - Data Source: [election_results.csv](Resources/election_results.csv)
+
 - Software: 
-   - Python 3.7.7, 
-   - Visual Studio Code 1.47.3 
+
+   - Python 3.7.7, <img src="Graphics/PythonLogo.PNG" width="3%" height="3%">
+   - Visual Studio Code 1.47.3 <img src="Graphics/VScode.PNG" width="3%" height="3%">
+   
 - Report: [election_results.txt](Analysis/election_results.txt)
 
 ## Results
