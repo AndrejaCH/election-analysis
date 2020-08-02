@@ -16,7 +16,7 @@ The purpose of this analysis is to generate a vote count report to certify U.S. 
       - the **total number of votes each candidate** received.
    5. The **winner of the election** based on popular vote.
    
-<p align="center">
+<p align="left">
 <img src="Graphics/Colorado.PNG" width="40%" height="40%">
 </p>
   
@@ -42,7 +42,7 @@ Altogether the votes cast by these three methods determine the final election re
 - Report: [election_results.txt](Analysis/election_results.txt)
 
 ## Results
-### :ballot_box_with_check: Per Candidate
+### Per Candidate
 - The analysis of the election shows that:
   - There were **369,711** votes cast in the election.
 - The candidates were:
@@ -56,7 +56,7 @@ Altogether the votes cast by these three methods determine the final election re
 - The winner of the election was:
     - **Diana DeGette**, who received **73.8%** of the vote and **272,892** of votes.
 
-### :ballot_box_with_check: Per County
+### Per County
 - The analysis of the election shows that:
 - The counties results were:
     - Jefferson with a **10.5%** vote of the total count and **38,855** voter turnout.
@@ -243,8 +243,9 @@ Using this code can be used on similar projects such as other congressional dist
 
 ## References
 (1) Eric Mathews. *Python Crash Course 2nd edition* SF: no starch press, 2019. Print (page 192).
-(2) Build-in Functions, https://docs.python.org/3/library/functions.html#next, *Python Software Foundation*, Web 31 Jul 2020.
-(3) "Module 3: PyCity Schools with Pandas." https://courses.bootcampspot.com/courses/200/pages/3-dot-4-2-open-and-read-files-using-python?module_item_id=57541, Trilogy Education Services, 2000. Web Web 31 Jul 2020.
-(4) Udacity. *Intro to Python programming: Dictionaries na Indentety operators*,  https://classroom.udacity.com/courses/ud1110/lessons/c06382b2-cb27-4aac-a2bd-eb754fd13914/concepts/47a34480-110c-4cfa-be87-73278fc1a1e3, Web 31 Jul 2020.
 
-## Additional useful articles
+(2) Build-in Functions, https://docs.python.org/3/library/functions.html#next, *Python Software Foundation*, Web 31 Jul 2020.
+
+(3) "Module 3: PyCity Schools with Pandas." https://courses.bootcampspot.com/courses/200/pages/3-dot-4-2-open-and-read-files-using-python?module_item_id=57541, Trilogy Education Services, 2000. Web Web 31 Jul 2020.
+
+(4) Udacity. *Intro to Python programming: Dictionaries na Indentety operators*,  https://classroom.udacity.com/courses/ud1110/lessons/c06382b2-cb27-4aac-a2bd-eb754fd13914/concepts/47a34480-110c-4cfa-be87-73278fc1a1e3, Web 31 Jul 2020.
