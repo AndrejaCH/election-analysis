@@ -235,11 +235,11 @@ This code will automatically:
 
 Using this code can be used on similar projects such as other congressional districts election, senatorial districts, local election, and more.
 
-- [x] This code reads csv files but can be easily converted to read other files such as *json*, by importing other dependencies for example `import json`.
-- [x] This code reads candidate name on 2nd index and county on 1st index, but in case of a different structure of the data set this lines of codes `candidate_name = row[2]` and    `county_name = row[1]` can be easily converted.
-- [x] By importing dependency `datetime` we could perform real-time results for election in progress. `datetime` dependency will capture exact time when the analysis is executed.
-- [x] Since Python script finds unique names of candidates and counties we can reuse this code on a much larger dataset with more candidates, more counties or other areas.
-- [x] This code accesses the dataset in a specific directory and writes a report to a specific file, but this specific lines of codes  `file_to_load = os.path.join("Resources","election_results.csv")` and `file_to_save = os.path.join("Analysis", "election_analysis.txt")` can be easily fixed by renaming a directory and file in the code itself.
+- This code reads csv files but can be easily converted to read other files such as *json*, by importing other dependencies for example `import json`.
+- This code reads candidate name on 2nd index and county on 1st index, but in case of a different structure of the data set this lines of codes `candidate_name = row[2]` and    `county_name = row[1]` can be easily converted.
+- By importing dependency `datetime` we could perform real-time results for election in progress. `datetime` dependency will capture exact time when the analysis is executed.
+- Since Python script finds unique names of candidates and counties we can reuse this code on a much larger dataset with more candidates, more counties or other areas.
+- This code accesses the dataset in a specific directory and writes a report to a specific file, but this specific lines of codes  `file_to_load = os.path.join("Resources","election_results.csv")` and `file_to_save = os.path.join("Analysis", "election_analysis.txt")` can be easily fixed by renaming a directory and file in the code itself.
 
 ## References
 (1) Eric Mathews. *Python Crash Course 2nd edition* SF: no starch press, 2019. Print (page 192).
