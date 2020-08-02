@@ -4,26 +4,26 @@
 
 ## Project Overview
 ### Purpose
-The purpose of this analysis is to generate a vote count report to certify U.S. congressional race in Colorado precinct and represent:
+The purpose of this analysis is to generate a vote count report to certify U.S. congressional race in Colorado precinct and release:
 ***
-   1. The total number of votes cast.
-   2. The complete list of counties in the congressional precinct, including 
-      - the percentage of votes from each county out of the total count and 
-      - the voter turnout for each county. 
-   3. The county with the highest turnout.
-   4. The complete list of candidates who received votes, including 
-      - the percentage of votes each candidate won and 
-      - the total number of votes each candidate received.
-   5. The winner of the election based on popular vote.
+   1. The **total number** of votes cast.
+   2. The complete list of **counties** in the congressional precinct, including 
+      - the **percentage of votes from each county** out of the total count and 
+      - the **voter turnout for each county**. 
+   3. The county with the **highest turnout**.
+   4. The complete list of **candidates** who received votes, including 
+      - the **percentage of votes each candidate** won and 
+      - the **total number of votes each candidate** received.
+   5. The **winner of the election** based on popular vote.
 ***
 
 ### Background
 The results are gathered with three primary voting methods:
-  - Mail-in ballots, that are hand-counted at the central office.
-  - Punch cards, that are collected and fed into a machine that tabulates votes and then sends the results to the central office.
-  - DRE (direct-recording electronic counting) memory cards are read by a computer, and sent to the central office.
+  - **Mail-in ballots**, that are hand-counted at the central office.
+  - **Punch cards**, that are collected and fed into a machine that tabulates votes and then sends the results to the central office.
+  - **DRE** (direct-recording electronic counting) **memory cards**, that are read by a computer, and sent to the central office.
 
-Altogether the votes cast by these three methods will determine the final election results.  After the votes are counted, all results are gathered in a .csv file. The file contains three columns with the following headers: **Ballot ID** (Column A), **County** (Column B), **Candidate Name** (Column C).
+Altogether the votes cast by these three methods determine the final election results. After the votes are counted, all results are gathered in a **csv file**. The file contains three columns with the following headers: **Ballot ID** (Column A), **County** (Column B), and **Candidate Name** (Column C).
 
 ## Resources
 - Data Source: [election_results.csv](Resources/election_results.csv)
@@ -33,7 +33,7 @@ Altogether the votes cast by these three methods will determine the final electi
 - Report: [election_results.txt](Analysis/election_results.txt)
 
 ## Results
-### Per Candidate
+### :ballot_box_with_check: Per Candidate
 - The analysis of the election shows that:
   - There were **369,711** votes cast in the election.
 - The candidates were:
@@ -47,7 +47,7 @@ Altogether the votes cast by these three methods will determine the final electi
 - The winner of the election was:
     - **Diana DeGette**, who received **73.8%** of the vote and **272,892** of votes.
 
-### Per County
+### :ballot_box_with_check: Per County
 - The analysis of the election shows that:
 - The counties results were:
     - Jefferson with a **10.5%** vote of the total count and **38,855** voter turnout.
@@ -67,7 +67,7 @@ An example of output from a command line in VS Code and in txt file.
 
 ### Overview of the methods and code
 #### :o: Open, read & write the file
-One of the most important things in data analytics is opening, reading, and writing a file. Opening and reading a file is the first step that needs to be done in order to start data analysis. Writing a report is as important and since writing a file has a similar syntax it is included in this chapter.
+One of the most important things in data analytics is opening, reading, and writing a file. Opening and reading a file is the first step that needs to be done in order to start data analysis. Writing a report is similarly important and since writing a file has a similar syntax it is included in this chapter.
 
 ***1. Import dependencies.***
 
@@ -76,28 +76,28 @@ import csv
 import os
 ```
 
-- `import csv` - allows to easily pull in data from external CSV files and perform operations on them (and also comes with the following functions):
-   - `next()` - skips the first row (most commonly used to skip a header row).
+- `import csv` - allows to easily pull in data from external CSV files and perform operations on them. This dependency also includes the following functions:
+   - `next()` - skips the row (most commonly used to skip a header row).
    - `reader()` - reads each row from the csv file and return data as a lists of strings (each row is a new list).
       
-It is important to know how the data are returned after reading, and knowing the properties of a dataset! `reader()`, will return data as a list (each row is a new list). Lists are mutable and ordered (indexed), so we can access (loop through) the elements via indexes.
+:exclamation: It is important to know how the data are returned after reading, and to know the properties of a dataset! `reader()`, returns data as a list (each row is a new list). Lists are mutable and ordered (indexed), so we can access (loop through) the elements via indexes.
 
-- `import os` - allows to interact with the operating system, and comes also with the following 2 submodules:
+- `import os` - allows to interact with the operating system. This dependency also includes the following functions:
    - `path()` - allows us to access files on different operating systems.
    - `join()` - joins file path components together when they are provided as separate strings; then, it returns a direct path with the appropriate operating system                              separator, forward slash for macOS or backward slash for Windows.
 
-*note: there is also a way to open a file with a direct path.  `file_to_load = 'Resources/election_results.csv'` In this case, we don’t need to import dependency `import os`.*
+:exclamation: There is also a way to open a file with a direct path.  `file_to_load = 'Resources/election_results.csv'` In this case, we don’t need to import dependency `import os`, yet we need to provide exact path and save files in apropriate subfolders.
 
 ***2. Declare a variable, and load a file from the path.***
 
 ```python s=
 file_to_load = os.path.join("Resources", "election_results.csv")
 ```
-- `file_to_load` - declaring a variable for the file
-- `Resources` - directory of the file
-- `election_results.csv` - name of the file
+- `file_to_load` - declaring a variable for the file.
+- `Resources` - directory of the file.
+- `election_results.csv` - name of the file.
 
-*Important directory has to be provided exactly, letter case matters!*
+:exclamation: Directory has to be provided exactly, letter case matters!
 
 ***3. Open and read the file.***
 
@@ -107,19 +107,20 @@ with open(file_to_load) as election_data:
 ```
 
 - `with open()` - statement opens the file and ensures the proper acquisition of data without having to close the file, to ensure that the data isn’t lost or corrupted.
-- `as <new_variable_name>` - passing a variable to a new name.
-- `csv.reader()` - please see the explanation in the pharagraph above. 
-- `file_to_read` - a new variable that we will use in the for loop to access the elements via indexes.
-- `election_data` - passing an argument to a function, a file that we want to function to read.
+- `as <new_variable_name>` - assigning alias to a variable.
+- `csv.reader()` - reads each row from the csv file and return data as a lists of strings. 
+- `file_to_read` - a new variable that will be used in the for loop to access the elements via indexes.
+- `election_data` - passing an argument to a function, a file that we want function to read.
 
-*Note: function `with open(file_to_load, “r”)` doesn’t have declared method “r” as in “read mode”, because skipping it, set default settings, that is read or “r” mode.
+:exclamation: Function `with open(file_to_load, “r”)` doesn’t have declared method “r” as in “read mode”. Ommiting the mode argument, Python opens the file in read-only mode by default (1).
 
-***4. Declare a header row and skip the first row.***
+***4. Declare and and skip the header row.***
 
 ```python s=
 header = next(file_to_read)
 ```
-- `next()` - function will skip first row in file_to_read
+- `next()` - function will skip first row in file_to_read.
+Definition from official Python documetation: *Retrieve the next item from the iterator by calling its __next__() method. If default is given, it is returned if the iterator is exhausted, otherwise StopIteration is raised (2)*.
 
 <p align="center">
 A full code to open and read a file.
@@ -134,17 +135,17 @@ A full code to open and read a file.
 ```python s=
 file_to_save = os.path.join("Analysis", "election_results.txt")
 ```
-This line of code will create a file in the “Analysis folder” if one doesn’t exist yet. The folder must already exist.
+This line of code will create a file *"election_results.txt"* in the *“Analysis folder”* if one doesn’t exist yet. The folder must already exist, otherwise Python arises an error.
 
 ```python s=
 with open(file_to_save, "w") as txt_file:
 ```
-In this function, we must specify the method `“w”` as in `write mode` in order to be able to write in a file.
+In this function, we must specify the method `“w”` as in `write mode` in order to be able to write in a file. When using "w" Python method , Python will owerwrite existing contents if the file already exists. To avoid that, we can use `"a"` as in `append` method. If a file does not exist, it creates one, if a file has been created the data will be added to the file (3).
 
 ```python s=
 txt_file.write(election_results)
 ```
-With the function `write()` we declare that we want to write in txt_file. txt_file is a new variable that is passed on from “original variable file_to_save”. In parentheses (election_results) is a name of a variable that contains data about what we want to write in a file.
+With the function `write()` (this method is not imporetd from any dependency, such as csv.reader()), it is a Python method) we declare we want to write in a txt_file. txt_file is a new variable that is passed on from “original variable file_to_save”. In parentheses (election_results) is a name of a variable that contains data about what we want to write in a file.
 
 <p align="center">
 A full code to open and write a file.
@@ -158,46 +159,48 @@ A full code to open and write a file.
 In order to correctly retrieve elements or loop through specific data sets, it is essential to know their properties. Lists are mutable and ordered (indexing is possible), dictionaries are mutable and unordered (indexing is not possible), dictionary keys are immutable and unique, while values are more flexible and can be mutable.
 
 ```python s=
-   #retrieving unique values with a conditional statement and membership operator.
+   #Retrieving unique values with a conditional statement and membership operator (not in).
    if candidate_name not in candidate_options:
 
-          # Add the candidate name to the candidate list with the append() method.
+          #Appending new values(candidate_name) the list (candidate_options) with the append() method.
           candidate_options.append(candidate_name)
             
-          # And begin tracking that candidate's voter count. 
-          #Assign and store new value with `= 0` to the key (candidate_name) in the dictionary candidate_votes.
+          #Creating a new key [candidate_name] in a dictionary (candidate_votes) and assisging a new value to its key by initializing the value `=0`.
+          #And begin tracking key's value (candidate's voter count). 
           candidate_votes[candidate_name] = 0
 
    # Add a vote to that candidate's count. Indentation is important 
-   #(it has to be aligned with if statement, otherwise values wouldn’t be stored properly)
+   # and it has to be aligned with if statement, otherwise values wouldn’t be increment properly.
    candidate_votes[candidate_name] += 1
 ```
 
-*Note this line of code is inside the `for loop`.*
+*Note: this line of code is inside the `for loop`.*
 
 #### :o: get() method 
 
-With get() method we can retrieves values from a dictionary based on their keys:
-votes - accessing values with a variable
-candidate name - key
-candidate_votes - dictionary
+With get() method we can retrieve values from a dictionary based on their keys. (in this case we are assigning a new value (votes) to a key).
+!!! see two diferent methods!!!! PyPoll and PyPollChallenge!!!!
 
 ```python s=
 For candidate_name in candidate_votes:
         votes = candidate_votes.get(candidate_name)
 ```
+- `votes` - accessing values with a new variable
+- `candidate name` - dictoinary's key
+- `candidate_votes` - dictionary
+
+:exclamation: get() looks up values in a dictionary, but unlike square brackets, get() returns "None" or a default value of your choice, if the key is not found. If you expect look-ups to sometimes fail, get() might be a better tool than normal square brackets look-ups because errors can crash your program (4).
 
 #### :o: Finding a winner
 The following code determines a winner based on the highest vote count. 
 
-Declaring and initializing variables
-
+Declaring and initializing variables:
 ```python s=
 winning_candidate = ""
 winning_count = 0
 winning_percentage = 0
 ```
-Determine winning vote count, winning percentage, and candidate.
+Determine winning vote count, winning percentage, and candidate:
 ```python s=
 if (votes > winning_count) and (vote_percentage > winning_percentage):
     winning_count = votes
@@ -205,10 +208,10 @@ if (votes > winning_count) and (vote_percentage > winning_percentage):
     winning_percentage = vote_percentage
 ```           
 
-All values *votes* are compared against each other by declaring a new variable `wining_count`. When the condition is `True`, meaning the highest value is found, the value is passed to new variables `winning_count` `winning_candidate` ` winning_percentage`.
+All values *votes* are compared against each other by declaring a new variable `wining_count`. When the condition is  met and set to `True`, meaning the highest value is found, and the value is passed to the new variables `winning_count` `winning_candidate` ` winning_percentage`.
 
 ## Summary 
-Writing scripts in Python has many advantages, automating processes, fast execution of the code fast, and reusing the code for similar projects. This code quickly returns numerous data for U.S. Congressional Precinct in Colorado and can be easily used but for other elections as well.
+Writing scripts in Python has many advantages -- that is -- ***automating processes***, ***fast execution of the code***, and ***reusing the code*** for similar projects. This code quickly returns numerous data for U.S. Congressional Precinct in Colorado, but can be easily used but for other elections as well.
 This code will automatically:
 - find candidates names,
 - find counties,  
@@ -220,11 +223,15 @@ This code will automatically:
 Using this code can be used on similar projects such as other congressional districts election, senatorial districts, local election, and more.
 
 - This code reads csv files but can be easily converted to read other files such as *json*, by importing other dependencies for example `import json`.
-- This code reads candidate name on 2nd index and county on 1st index, but in case of a different structure of the data set this can be easily converted.
+- This code reads candidate name on 2nd index and county on 1st index, but in case of a different structure of the data set this lines of codes `candidate_name = row[2]` and    `county_name = row[1]` can be easily converted.
 - By importing dependency `datetime` we could perform real-time results for election in progress. `datetime` dependency will capture exact time when the analysis is executed.
-- Since Python script finds unique names of candidates and counties we cab reuse this code on a much larger dataset with more candidates and counties or other areas.
-- This code accesses the dataset in a specific directory and writes a report to a specific file, but this can be easily fixed by renaming a directory and file in the code itself.
+- Since Python script finds unique names of candidates and counties we can reuse this code on a much larger dataset with more candidates, more counties or other areas.
+- This code accesses the dataset in a specific directory and writes a report to a specific file, but this specific lines of codes  `file_to_load = os.path.join("Resources","election_results.csv")` and `file_to_save = os.path.join("Analysis", "election_analysis.txt")` can be easily fixed by renaming a directory and file in the code itself.
 
+## References
+(1)Python Crash Course page 192!
+(2) https://docs.python.org/3/library/functions.html#next
+(3) https://courses.bootcampspot.com/courses/200/pages/3-dot-4-2-open-and-read-files-using-python?module_item_id=57541 3.4.2.
+(4) (Udacity/Intro to Python programming/lesson 3 13. Dictionaries na Indentety operators https://classroom.udacity.com/courses/ud1110/lessons/c06382b2-cb27-4aac-a2bd-eb754fd13914/concepts/47a34480-110c-4cfa-be87-73278fc1a1e3)
 
-
-
+## Additional useful articles
