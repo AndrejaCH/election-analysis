@@ -20,13 +20,11 @@ The purpose of this analysis is to generate a vote count report to certify U.S. 
 <img src="Graphics/Colorado.PNG" width="40%" height="40%">
 </p>
   
-***
-
 ### Background
 The results are gathered with three primary voting methods.
-  - **Mail-in ballots**, that are hand-counted at the central office.
-  - **Punch cards**, that are collected and fed into a machine that tabulates votes and then sends the results to the central office.
-  - **DRE** (direct-recording electronic counting) **memory cards**, that are read by a computer, and sent to the central office.
+  1. **Mail-in ballots**, that are hand-counted at the central office.
+  2. **Punch cards**, that are collected and fed into a machine that tabulates votes and then sends the results to the central office.
+  3. **DRE** (direct-recording electronic counting) **memory cards**, that are read by a computer, and sent to the central office.
 
 Altogether the votes casted by these methods determine the final election results. After the votes are counted, all results are gathered in a **csv file**. The file contains three columns with the following headers: **Ballot ID** (Column A), **County** (Column B), and **Candidate Name** (Column C).
 
