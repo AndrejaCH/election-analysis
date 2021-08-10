@@ -246,4 +246,4 @@ Using this code can be used on similar projects such as other congressional dist
 
 (3) "Module 3: PyCity Schools with Pandas." https://courses.bootcampspot.com/courses/200/pages/3-dot-4-2-open-and-read-files-using-python?module_item_id=57541, Trilogy Education Services, 2000. Web 31 Jul 2020.
 
-(4) Udacity. *Intro to Python programming: Dictionaries na Indentety operators*,  https://classroom.udacity.com/courses/ud1110/lessons/c06382b2-cb27-4aac-a2bd-eb754fd13914/concepts/47a34480-110c-4cfa-be87-73278fc1a1e3, Web 31 Jul 2020.
+(4) Udacity. *Intro to Python programming: Dictionaries and Indentety operators*,  https://classroom.udacity.com/courses/ud1110/lessons/c06382b2-cb27-4aac-a2bd-eb754fd13914/concepts/47a34480-110c-4cfa-be87-73278fc1a1e3, Web 31 Jul 2020.
