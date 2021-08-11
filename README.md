@@ -32,7 +32,7 @@ Altogether the votes casted by these methods determine the final election result
 
 - Software: 
 
-   - Python 3.7.7, <img src="Graphics/PythonLogo.PNG" width="3%" height="3%">
+   - Python 3.7.7 <img src="Graphics/PythonLogo.PNG" width="3%" height="3%">
    - Visual Studio Code 1.47.3 <img src="Graphics/VScode.PNG" width="3%" height="3%">
    
 - Report: [election_results.txt](Analysis/election_results.txt)
