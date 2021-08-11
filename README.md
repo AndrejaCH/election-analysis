@@ -1,7 +1,5 @@
 # Election Analysis for U.S. Congressional Precinct in Colorado
 
-*Python election analysis*
-
 ## Project Overview
 ### Purpose
 The purpose of this analysis is to generate a vote count report to certify U.S. congressional race in a Colorado precinct and release the following.
