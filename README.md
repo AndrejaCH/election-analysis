@@ -163,7 +163,7 @@ A full code to open and write a file.
 </p>
 
 #### :o: Looping through dictionaries and the lists
-In order to correctly retrieve elements or loop through specific data sets, it is essential to know their properties. Lists are mutable and ordered (indexing is possible). Dictionaries are mutable and unordered (indexing is not possible). Dictionary keys are immutable and has tp be unique, while values are more flexible and can be mutable.
+In order to correctly retrieve elements or loop through specific data sets, it is essential to know their properties. Lists are mutable and ordered (indexing is possible). Dictionaries are mutable and unordered (indexing is not possible). Dictionary keys are immutable and has to be unique, while values are more flexible and can be mutable.
 
 ```python s=
    #Retrieving unique values with a conditional statement and membership operator (not in).
