@@ -170,7 +170,7 @@ In order to correctly retrieve elements or loop through specific data sets, it i
           #Appending new values(candidate_name) the list (candidate_options) with the append() method.
           candidate_options.append(candidate_name)
             
-          #Creating a new key [candidate_name] in a dictionary (candidate_votes) and assisging a new value to its key by initializing the value `=0`.
+          #Creating a new key [candidate_name] in a dictionary (candidate_votes) and assigning a new value to its key by initializing the value `=0`.
           #And begin tracking key's value (candidate's voter count). 
           candidate_votes[candidate_name] = 0
 
